@@ -6,10 +6,10 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <div className=" py-5 shadow bg-gray-800 text-yellow-400">
+    <div className=" py-5 shadow bg-gray-800  text-orange-400">
       <nav className="flex items-center justify-between max-w-7xl mx-auto ">
         <div>
-          <h2 className="font">SportNest</h2>
+          <h2 className="text-3xl"><span>Sport</span><span className="text-white">Nest</span></h2>
         </div>
         
 
@@ -30,7 +30,7 @@ const Navbar = () => {
             <Link href={"/add-facility"}>Add Facility</Link>
           </li>
           <li>
-            <Link href={"/manage-my-facilities"}>Manage My Facilities</Link>
+            <Link href={"/manage-my-facilities"}>Manage Facilities</Link>
           </li>
         
           <li>
