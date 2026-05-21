@@ -17,7 +17,7 @@ const Navbar = () => {
   const { data: session } = authClient.useSession();
   // console.log(session);
   const user = session?.user;
-  console.log(user);
+  // console.log(user);
 
   useEffect(() => {
   console.log("Navbar rendered");
@@ -42,10 +42,10 @@ const Navbar = () => {
 
         <div className="flex items-center gap-5">
           <ul className="flex items-center gap-5">
-          <li className="hover:text-orange-300">
+          <li className="hover:text-white">
             <Link href={"/"}>Home</Link>
           </li>
-          <li className="hover:text-orange-300">
+          <li className="hover:text-white">
             <Link href={"/all-facilities"}>All Facilities</Link>
           </li>
         </ul> 
@@ -53,14 +53,14 @@ const Navbar = () => {
        <div className="">
         {
           user ? <ul className="flex items-center gap-5">
-            <li className="hover:text-orange-300">
+            <li className="hover:text-white">
             <Link href={"/my-bookings"}>My Bookings</Link>
           </li>
 
-          <li className="hover:text-orange-300">
+          <li className="hover:text-white">
             <Link href={"/add-facility"}>Add Facility</Link>
           </li>
-          <li className="hover:text-orange-300">
+          <li className="hover:text-white">
             <Link href={"/manage-my-facilities"}>Manage Facilities</Link>
           </li>
 
@@ -110,10 +110,10 @@ const Navbar = () => {
           </li>
           </ul> : 
           <ul className="flex items-center gap-5">
-          <li className="hover:text-orange-300">
+          <li className="hover:text-white">
             <Link href={"/login"}>Login</Link>
           </li>
-          <li className="hover:text-orange-300">
+          <li className="hover:text-white">
             <Link href={"/signup"}>Sign Up</Link>
           </li>
         </ul>

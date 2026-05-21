@@ -1,16 +1,29 @@
 
 
 import BookingCancleButton from "@/Components/BookingCancleButton";
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
 import Image from "next/image";
 import { CiCalendar, CiClock2, CiLocationOn } from "react-icons/ci";
 import { MdAttachMoney } from "react-icons/md";
 
 
 const MyBookingsPage = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/booking`);
-  const bookings = await res.json();
-  console.log(bookings);
+  // const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/booking`);
+  // const bookings = await res.json();
+  // console.log(bookings);
 
+   const session = await auth.api.getSession({
+    headers: await headers() // you need to pass the headers object.
+})
+const user = session?.user;
+// console.log(user);
+const userId = user?.id;
+console.log("session user id", userId);
+// console.log(session);
+const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/booking/${userId}`);
+ const bookings = await res.json();
+//  console.log(bookings);
     
   return (
     <section className=" py-20 w-full bg-gray-200">

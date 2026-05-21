@@ -18,7 +18,7 @@ const BookingConfirmForm = ({ facility }) => {
     } = authClient.useSession() 
     // console.log(session);
     const user = session?.user;
-    console.log(user);
+    // console.log(user);
 
 
 
