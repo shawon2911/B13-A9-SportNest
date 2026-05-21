@@ -140,54 +140,60 @@ const Navbar = () => {
           </div>
         </div>
 
+        
         {/* Mobile Menu */}
-        {mobileOpen && (
-          <div className="absolute top-20 left-0 w-full bg-gray-900 md:hidden px-6 py-4 space-y-4 z-50">
-            
-            <Link onClick={() => setMobileOpen(false)} href={"/"}>
-              Home
-            </Link>
+{mobileOpen && (
+  <div className="absolute top-20 left-0 w-full bg-gray-900 md:hidden px-6 py-4 z-50 flex flex-col gap-4">
 
-            <Link onClick={() => setMobileOpen(false)} href={"/all-facilities"}>
-              All Facilities
-            </Link>
+    {/* Profile info on mobile */}
+    {user && (
+      <div className="flex items-center gap-3 pb-3 border-b border-gray-700">
+        <Avatar size="sm">
+          <Avatar.Image alt={user?.name} src={user?.image} />
+          <Avatar.Fallback>{user?.name?.charAt(0)}</Avatar.Fallback>
+        </Avatar>
+        <span className="text-white font-medium">{user?.name}</span>
+      </div>
+    )}
 
-            {user ? (
-              <>
-                <Link onClick={() => setMobileOpen(false)} href={"/my-bookings"}>
-                  My Bookings
-                </Link>
+    <Link className="hover:text-white" onClick={() => setMobileOpen(false)} href={"/"}>
+      Home
+    </Link>
 
-                <Link onClick={() => setMobileOpen(false)} href={"/add-facility"}>
-                  Add Facility
-                </Link>
+    <Link className="hover:text-white" onClick={() => setMobileOpen(false)} href={"/all-facilities"}>
+      All Facilities
+    </Link>
 
-                <Link
-                  onClick={() => setMobileOpen(false)}
-                  href={"/manage-my-facilities"}
-                >
-                  Manage Facilities
-                </Link>
+    {user ? (
+      <>
+        <Link className="hover:text-white" onClick={() => setMobileOpen(false)} href={"/my-bookings"}>
+          My Bookings
+        </Link>
 
-                <button
-                  onClick={handleSignOut}
-                  className="bg-red-800 text-white px-4 py-2 w-full"
-                >
-                  Log Out
-                </button>
-              </>
-            ) : (
-              <>
-                <Link onClick={() => setMobileOpen(false)} href={"/login"}>
-                  Login
-                </Link>
-                <Link onClick={() => setMobileOpen(false)} href={"/signup"}>
-                  Sign Up
-                </Link>
-              </>
-            )}
-          </div>
-        )}
+        <Link className="hover:text-white" onClick={() => setMobileOpen(false)} href={"/add-facility"}>
+          Add Facility
+        </Link>
+
+        <Link className="hover:text-white" onClick={() => setMobileOpen(false)} href={"/manage-my-facilities"}>
+          Manage Facilities
+        </Link>
+
+        <button onClick={handleSignOut} className="bg-red-800 text-white px-4 py-2 w-full rounded">
+          Log Out
+        </button>
+      </>
+    ) : (
+      <>
+        <Link className="hover:text-white" onClick={() => setMobileOpen(false)} href={"/login"}>
+          Login
+        </Link>
+        <Link className="hover:text-white" onClick={() => setMobileOpen(false)} href={"/signup"}>
+          Sign Up
+        </Link>
+      </>
+    )}
+  </div>
+)}
       </nav>
     </div>
   );

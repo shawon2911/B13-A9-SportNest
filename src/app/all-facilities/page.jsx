@@ -7,7 +7,7 @@ const AllFacilityPage = async() => {
     return (
         <div className="max-w-7xl mx-auto py-20">
             <h2 className="font-bold text-3xl ">All Facililties </h2>
-            <div className="grid grid-cols-3 gap-12 mt-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12 mt-10">
                 {
                     facilities.map(facility => <FacilityCard key={facility._id} facility={facility}></FacilityCard>)
                 }
