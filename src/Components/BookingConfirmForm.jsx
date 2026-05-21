@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Button, Card, FieldError, Input, Label, TextField } from "@heroui/react";
 import { redirect } from "next/navigation";
+import { authClient } from "@/lib/auth-client";
 
 const BookingConfirmForm = ({ facility }) => {
      const {_id, name, location, category, pricePerHour, rating, availableSlots, image, description} = facility;
@@ -10,11 +11,24 @@ const BookingConfirmForm = ({ facility }) => {
   const [timeSlot, setTimeSlot] = useState("");
 
   const totalPrice = hours * facility.pricePerHour;
+                                                                                                         
+   const { 
+        data: session, 
+        
+    } = authClient.useSession() 
+    // console.log(session);
+    const user = session?.user;
+    console.log(user);
+
+
 
   const handleBooking = async(e) => {
     e.preventDefault();
 
     const bookingData = {
+      userName: user?.name,
+      userEmail: user?.email,
+      userId: user?.id,
       _id,
       name,
       location,

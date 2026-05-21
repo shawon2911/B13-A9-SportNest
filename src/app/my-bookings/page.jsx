@@ -9,7 +9,7 @@ import { MdAttachMoney } from "react-icons/md";
 const MyBookingsPage = async () => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/booking`);
   const bookings = await res.json();
-//   console.log(bookings);
+  console.log(bookings);
 
     
   return (

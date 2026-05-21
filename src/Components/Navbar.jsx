@@ -11,13 +11,21 @@ import {
   Label,
 } from "@heroui/react";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 
 const Navbar = () => {
   const { data: session } = authClient.useSession();
   // console.log(session);
   const user = session?.user;
-  // console.log(user);
+  console.log(user);
+
+  useEffect(() => {
+  console.log("Navbar rendered");
+}, []);
+
+
+
+
 
   const handleSignOut = async() => {
     await authClient.signOut();
