@@ -32,7 +32,15 @@ const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/booking/${userId}`)
       <p className="text-gray-500 mt-3">
         View and manage all your booked sports facilities in one place.
       </p>
-      <div className="mt-5">
+     {
+      bookings.length === 0 ? 
+      <div className="min-h-[50vh] bg-white rounded-2xl my-10 flex justify-center items-center">
+        <div>
+          <h2 className="text-2xl text-red-600">No bookings found</h2>
+        <p className="text-xl text-red-600">You haven’t booked anything yet.</p>
+        </div>
+      </div> :
+       <div className="mt-5">
         {bookings.map((booking) => (
           <div key={booking._id}>
             <div className="flex items-center justify-between  rounded-2xl border border-gray-200 bg-white p-10 mt-5 px-10 shadow-sm">
@@ -95,6 +103,7 @@ const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/booking/${userId}`)
           </div>
         ))}
       </div>
+     }
       </div>
     </section>
   );
