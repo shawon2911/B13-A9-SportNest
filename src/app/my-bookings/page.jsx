@@ -35,8 +35,8 @@ const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/booking/${userId}`)
      {
       bookings.length === 0 ? 
       <div className="min-h-[50vh] bg-white rounded-2xl my-10 flex justify-center items-center">
-        <div>
-          <h2 className="text-2xl text-red-600">No bookings found</h2>
+        <div className="text-center space-y-3">
+          <h2 className="text-3xl font-bold text-red-600">No bookings found</h2>
         <p className="text-xl text-red-600">You haven’t booked anything yet.</p>
         </div>
       </div> :
