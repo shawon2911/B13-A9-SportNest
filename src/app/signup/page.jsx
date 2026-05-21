@@ -43,6 +43,12 @@ export default function SignUpPage() {
     
 
   }
+
+  const handleGoogleSignIn = async() => {
+     const data = await authClient.signIn.social({
+    provider: "google",
+  });
+  };
   
 
   return (
@@ -124,7 +130,7 @@ export default function SignUpPage() {
           <Separator className="flex-1 bg-gray-300 h-[1px]" />
         </div>
       </Form>
-      <Button  className={"w-full gap-3 border-gray-500 rounded-full"} variant="outline">
+      <Button onClick={handleGoogleSignIn}  className={"w-full gap-3 border-gray-500 rounded-full"} variant="outline">
         <FaGoogle />
         <p className="text-gray-700 font-bold">Continue With Google</p>
       </Button>
