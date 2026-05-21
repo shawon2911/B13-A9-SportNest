@@ -1,0 +1,124 @@
+[
+  {
+    "id": 1,
+    "name": "Green Field Arena",
+    "location": "Dhanmondi, Dhaka",
+    "category": "football",
+    "pricePerHour": 1200,
+    "rating": 4.8,
+    "availableSlots": 6,
+    "image": "https://i.ibb.co.com/C50WGGDm/img1.jpg",
+    "description": "Premium football turf with night lighting and professional grade artificial grass."
+  },
+  {
+    "id": 2,
+    "name": "City Cricket Stadium",
+    "location": "Mirpur, Dhaka",
+    "category": "cricket",
+    "pricePerHour": 2000,
+    "rating": 4.7,
+    "availableSlots": 3,
+    "image": "https://i.ibb.co.com/tp7wTwD3/img2.jpg",
+    "description": "Well-maintained cricket ground suitable for local and professional matches."
+  },
+  {
+    "id": 3,
+    "name": "Smash Badminton Court",
+    "location": "Uttara, Dhaka",
+    "category": "badminton",
+    "pricePerHour": 800,
+    "rating": 4.6,
+    "availableSlots": 10,
+    "image": "https://i.ibb.co.com/Ngnm8bJY/img3.webp",
+    "description": "Indoor wooden badminton courts with proper lighting and ventilation."
+  },
+  {
+    "id": 4,
+    "name": "Urban Basketball Court",
+    "location": "Banani, Dhaka",
+    "category": "basketball",
+    "pricePerHour": 1000,
+    "rating": 4.5,
+    "availableSlots": 5,
+    "image": "https://i.ibb.co.com/nqVmsTVT/img4.jpg",
+    "description": "Outdoor basketball court with high-quality flooring and night lights."
+  },
+  {
+    "id": 5,
+    "name": "Skyline Football Arena",
+    "location": "Uttara, Dhaka",
+    "category": "football",
+    "pricePerHour": 1200,
+    "rating": 4.6,
+    "availableSlots": 6,
+    "image": "https://i.ibb.co.com/60bck4cB/img5.jpg",
+    "description": "Modern football arena with synthetic turf and floodlights for night games."
+  },
+  {
+    "id": 6,
+    "name": "City Tennis Court",
+    "location": "Dhanmondi, Dhaka",
+    "category": "tennis",
+    "pricePerHour": 900,
+    "rating": 4.4,
+    "availableSlots": 4,
+    "image": "https://i.ibb.co.com/XrvrSkHp/img6.png",
+    "description": "Well-maintained tennis court perfect for practice and tournaments."
+  },
+  {
+    "id": 7,
+    "name": "Indoor Badminton Arena",
+    "location": "Mirpur, Dhaka",
+    "category": "badminton",
+    "pricePerHour": 700,
+    "rating": 4.7,
+    "availableSlots": 8,
+    "image": "https://i.ibb.co.com/bjJPvkqy/img7.jpg",
+    "description": "Air-conditioned indoor badminton courts with professional flooring."
+  },
+  {
+    "id": 8,
+    "name": "Cricket Practice Ground",
+    "location": "Mohammadpur, Dhaka",
+    "category": "cricket",
+    "pricePerHour": 1500,
+    "rating": 4.8,
+    "availableSlots": 3,
+    "image": "https://i.ibb.co.com/XZj6wdv5/img8.avif",
+    "description": "Full-size cricket ground suitable for practice and friendly matches."
+  },
+  {
+    "id": 9,
+    "name": "Swimming Training Center",
+    "location": "Gulshan, Dhaka",
+    "category": "swimming",
+    "pricePerHour": 2000,
+    "rating": 4.9,
+    "availableSlots": 2,
+    "image": "https://i.ibb.co.com/PvncQwRL/img9.webp",
+    "description": "Olympic-size swimming pool with professional training facilities."
+  },
+  {
+    "id": 10,
+    "name": "Multi-Sport Complex",
+    "location": "Bashundhara, Dhaka",
+    "category": "multi-sport",
+    "pricePerHour": 1800,
+    "rating": 4.7,
+    "availableSlots": 5,
+    "image": "https://i.ibb.co.com/PZZG4rCS/img10.avif",
+    "description": "Versatile sports complex offering football, basketball, and volleyball facilities."
+  }
+
+]
+
+
+
+
+
+
+
+
+
+
+
