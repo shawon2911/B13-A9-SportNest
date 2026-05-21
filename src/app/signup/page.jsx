@@ -2,6 +2,7 @@
 
 
 
+import { authClient } from "@/lib/auth-client";
 import {
   Button,
   Card,
@@ -14,7 +15,7 @@ import {
   TextField,
 } from "@heroui/react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 
 import { FaGoogle } from "react-icons/fa";
 
@@ -23,20 +24,22 @@ export default function SignUpPage() {
   const router = useRouter();
   const onSubmit = async (e) => {
     e.preventDefault();
-    const name = e.target.name.value;
-    const image = e.target.image.value;
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-    // console.log({name, image, email, password});
+    
+    const formData = new FormData(e.currentTarget)
+    const user = Object.fromEntries(formData.entries());
+    console.log(user);
 
     const { data, error } = await authClient.signUp.email({
-      name,
-      email,
-      password,
-      image,
+      email: user.email,
+      password: user.password,
+      image: user.image,
+      name: user.name,
+      
     });
 
+    console.log({data, error});
 
+    redirect("/");
     
 
   }
@@ -127,7 +130,7 @@ export default function SignUpPage() {
       </Button>
        <div className="flex justify-center items-center gap-2 mt-2">
         <p className="text-muted">Already have an account?</p>
-        <Link href={"/signin"} className="text-red-700 font-medium text-orange-600">SignIn here</Link>
+        <Link href={"/login"} className="font-medium text-orange-600">SignIn here</Link>
       </div>
     
     </Card>

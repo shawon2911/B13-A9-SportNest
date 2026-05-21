@@ -1,10 +1,19 @@
 "use client";
 
 
+import { authClient } from "@/lib/auth-client";
+import { Avatar, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from "@heroui/react";
 import Link from "next/link";
 import React from "react";
 
 const Navbar = () => {
+    const { 
+        data: session, 
+        
+    } = authClient.useSession() 
+    // console.log(session);
+    const user = session?.user;
+    // console.log(user);
   return (
     <div className=" py-5 shadow bg-gray-800  text-orange-400">
       <nav className="flex items-center justify-between max-w-7xl mx-auto ">
@@ -33,9 +42,50 @@ const Navbar = () => {
             <Link href={"/manage-my-facilities"}>Manage Facilities</Link>
           </li>
         
-          <li>
+          {/* <li>
             <Link href={"/profile"}>Profile</Link>
-          </li>
+          </li> */}
+
+
+            <Dropdown placement="bottom-end">
+  <DropdownTrigger>
+    <Avatar
+      src={user?.image}
+      name={user?.name}
+      className="cursor-pointer"
+    />
+  </DropdownTrigger>
+
+  <DropdownMenu aria-label="Profile Actions">
+
+    <DropdownItem key="profile">
+      <Link href="/profile">Profile</Link>
+    </DropdownItem>
+
+    <DropdownItem key="bookings">
+      <Link href="/my-bookings">My Bookings</Link>
+    </DropdownItem>
+
+    <DropdownItem key="add">
+      <Link href="/add-facility">Add Facility</Link>
+    </DropdownItem>
+
+    <DropdownItem key="manage">
+      <Link href="/manage-my-facilities">Manage Facilities</Link>
+    </DropdownItem>
+
+    <DropdownItem key="logout" className="text-danger" color="danger">
+      <button onClick={handleSignOut}>Log Out</button>
+    </DropdownItem>
+
+  </DropdownMenu>
+</Dropdown>
+
+
+
+
+
+
 
           <li>
             <Link href={"/login"}>Login</Link>
