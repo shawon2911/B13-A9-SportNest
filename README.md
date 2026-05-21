@@ -1,36 +1,148 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🏟️ SportNest — Frontend
 
-## Getting Started
+> A modern sports hub platform where users can explore sports programs, watch highlights, and enroll in skill-based sports training courses like Football, Basketball, Cricket, Athletics, and more.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🔗 Live URL
+
+👉 
+
+---
+
+## 📌 Project Purpose
+
+SportNest is a full-featured online sports learning and enrollment platform. Users can browse available sport programs, view detailed course info, and manage their profile — all within a clean, responsive, and performant interface powered by Next.js and secured via BetterAuth.
+
+---
+
+## ✨ Key Features
+
+- 🔐 **Authentication** — Email/password login & Google OAuth via BetterAuth
+- 🏠 **Home Page** — Hero slider, Popular Courses, Learning Tips, Top Instructors, Trending Programs
+- 📚 **All Courses Page** — Browse all sport programs with live search by title
+- 🔒 **Course Details (Protected Route)** — Full curriculum visible only to logged-in users; redirects to login with return navigation
+- 👤 **My Profile** — View logged-in user data with name & avatar update support
+- ✏️ **Update Profile** — Dedicated route with form to update name and photo URL
+- 🔔 **Toast Notifications** — Success/error feedback throughout the app
+- 🔄 **Loading States** — Skeleton/spinner shown during data fetching
+- 📱 **Fully Responsive** — Optimized for mobile, tablet, and desktop
+- 🚫 **404 Not Found Page** — Custom page for unmatched routes
+- 🎞️ **Animations** — Smooth transitions using Swiper.js / Motion
+
+---
+
+## 📁 Project Structure
+
+```
+sportnest-client/
+├── app/
+│   ├── (root)/
+│   │   ├── page.jsx              # Home
+│   │   ├── courses/
+│   │   │   ├── page.jsx          # All Courses
+│   │   │   └── [id]/page.jsx     # Course Details (protected)
+│   │   ├── my-profile/
+│   │   │   └── page.jsx          # My Profile
+│   │   └── update-profile/
+│   │       └── page.jsx          # Update Profile Form
+│   ├── login/page.jsx
+│   ├── register/page.jsx
+│   ├── not-found.jsx
+│   └── layout.jsx
+├── components/
+│   ├── Navbar.jsx
+│   ├── Footer.jsx
+│   ├── CourseCard.jsx
+│   ├── HeroSlider.jsx
+│   └── ...
+├── lib/
+│   └── auth-client.js
+├── data/
+│   └── courses.json
+├── public/
+└── .env.local
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 📦 NPM Packages Used
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Package | Purpose |
+|---|---|
+| `next` | React framework with App Router |
+| `react` / `react-dom` | UI library |
+| `tailwindcss` | Utility-first CSS framework |
+| `daisyui` | Tailwind component library |
+| `better-auth` | Authentication (email + Google OAuth) |
+| `swiper` | Hero banner & course sliders |
+| `react-hot-toast` | Toast notifications |
+| `axios` | HTTP requests to backend API |
+| `motion` | Page/component animations |
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🔐 Environment Variables
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Create a `.env.local` file in the project root:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🚀 Getting Started
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+# Clone the repository
+git clone https://github.com/your-username/sportnest-client.git
+cd sportnest-client
+
+# Install dependencies
+npm install
+
+# Set up environment variables
+cp .env.example .env.local
+# Fill in your values
+
+# Run the development server
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+---
+
+## 🛠️ Tech Stack
+
+| Technology | Role |
+|---|---|
+| **Next.js 14** (App Router) | Frontend framework |
+| **Tailwind CSS** | Styling |
+| **DaisyUI** | Pre-built UI components |
+| **BetterAuth** | Authentication |
+| **Swiper.js** | Slider/carousel |
+| **Vercel** | Deployment |
+
+---
+
+## 📸 Pages Overview
+
+| Route | Description | Protected |
+|---|---|---|
+| `/` | Home with hero, popular courses, tips | ❌ |
+| `/courses` | All courses with search | ❌ |
+| `/courses/[id]` | Course detail & curriculum | ✅ |
+| `/login` | Login with email or Google | ❌ |
+| `/register` | Register form | ❌ |
+| `/my-profile` | Logged-in user info | ✅ |
+| `/update-profile` | Edit name & avatar | ✅ |
+
+---
+
+## 🤝 Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you'd like to change.
+
+---
+
+## 📄 License
+
+This project is for educational purposes. All rights reserved © SportNest 2026.
