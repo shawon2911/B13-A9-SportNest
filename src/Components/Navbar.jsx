@@ -16,6 +16,7 @@ import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const { data: session } = authClient.useSession();
+  
   const user = session?.user;
 
   const [mobileOpen, setMobileOpen] = useState(false);

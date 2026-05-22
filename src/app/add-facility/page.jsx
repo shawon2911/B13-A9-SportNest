@@ -66,7 +66,7 @@ const AddFacilityPage = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {/* facility Name */}
           <div className="md:col-span-1">
-            <TextField name="facilityName" isRequired>
+            <TextField name="name" isRequired>
               <Label className="text-orange-400">Facility Name</Label>
 
               <Input placeholder="Green Turf" className="rounded-2xl" />
@@ -152,7 +152,7 @@ const AddFacilityPage = () => {
           </div>
 
           {/* Price */}
-          <TextField name="price" type="number" isRequired>
+          <TextField name="pricePerHour" type="number" isRequired>
             <Label className="text-orange-400">Price per Hour</Label>
 
             <Input
@@ -186,12 +186,12 @@ const AddFacilityPage = () => {
 
           {/* Image URL - Removed preview */}
           <div className="md:col-span-1">
-            <TextField name="imageUrl" isRequired>
+            <TextField name="image" isRequired>
               <Label className="text-orange-400">Image URL</Label>
 
               <Input
                 type="url"
-                placeholder="https://example.com/green-turf.jpg"
+                placeholder="give link from imagebb.com"
                 className="rounded-2xl"
               />
 
@@ -220,7 +220,7 @@ const AddFacilityPage = () => {
           type="submit"
           className="rounded-none w-full bg-orange-400 hover:bg-orange-600 py-6 text-white"
         >
-          Add Destination
+          Add Facility
         </Button>
       </form>
     </Card>

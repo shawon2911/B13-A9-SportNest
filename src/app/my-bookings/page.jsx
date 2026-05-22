@@ -1,4 +1,5 @@
-import BookingCancleButton from "@/Components/BookingCancleButton";
+import CancleButton from "@/Components/CancleButton";
+
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 import Image from "next/image";
@@ -11,10 +12,10 @@ const MyBookingsPage = async () => {
   });
   const user = session?.user;
   const userId = user?.id;
-  console.log("session user id", userId);
+  // console.log("session user id", userId);
 
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/booking/${userId}`
+    `${process.env.NEXT_PUBLIC_BASE_URL}/booking/${userId}`,
   );
   const bookings = await res.json();
 
@@ -93,7 +94,12 @@ const MyBookingsPage = async () => {
 
                   {/* Right Section - Cancel Button */}
                   <div className="sm:self-center">
-                    <BookingCancleButton booking={booking} />
+                    <CancleButton
+                      itemId={booking._id}
+                      itemName={booking.name}
+                      endpoint="booking"
+                      buttonText="Cancel Booking"
+                    ></CancleButton>
                   </div>
                 </div>
               </div>
