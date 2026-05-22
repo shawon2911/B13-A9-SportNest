@@ -46,7 +46,7 @@ const AddFacilityPage = () => {
         
        
   return (
-   <section className="bg-gray-200 py-12 md:py-20 w-full px-4">
+   <section className="bg-gray-200 py-12 md:py-30 w-full px-4">
   <div className="max-w-7xl mx-auto">
     <div className="text-center pb-8 md:pb-10">
       <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-400">

@@ -30,7 +30,7 @@ const EditFacility = ({facility}) => {
     return (
         <div>
              <Modal>
-      <Button className="rounded-none flex items-center py-6 gap-2 bg-orange-500 transition hover:bg-orange-700 mt-4 px-9">Edit</Button>
+      <Button className="rounded-none flex items-center py-6 gap-2 bg-orange-500 transition hover:bg-orange-700  px-9">Edit</Button>
       <Modal.Backdrop>
         <Modal.Container placement="auto">
           <Modal.Dialog className="sm:max-w-md">
