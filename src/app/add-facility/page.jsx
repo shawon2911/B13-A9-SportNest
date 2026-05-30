@@ -12,6 +12,7 @@ import {
   ListBox,
 } from "@heroui/react";
 import { redirect } from "next/navigation";
+import { toast } from "react-toastify";
 
 
 
@@ -30,23 +31,28 @@ const AddFacilityPage = () => {
         const newFacilityInfo = Object.fromEntries(formData.entries());
         // console.log(newFacilityInfo);
 
+        const {data: tokenData} = await authClient.token()
+        // console.log("tokken: ", tokenData)
+
         const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/all-facilities`, {
           method: 'POST',
           headers: {
-            'content-type' : 'application/json'
+            'content-type' : 'application/json',
+            authorization: `Bearer ${tokenData?.token}`
           },
           body: JSON.stringify(newFacilityInfo)
         })
         const data = await res.json();
         console.log(data);
 
+        toast.success("Successfully Facility Added");
         redirect("/manage-my-facilities");
 
       }
         
        
   return (
-   <section className="bg-gray-200 py-12 md:py-30 w-full px-4">
+   <section className="bg-gray-200 py-24  md:py-30 w-full px-4">
   <div className="max-w-7xl mx-auto">
     <div className="text-center pb-8 md:pb-10">
       <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-400">

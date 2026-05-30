@@ -1,16 +1,26 @@
 import BookingConfirmForm from "@/Components/BookingConfirmForm";
+import { auth } from "@/lib/auth";
 import { Chip } from "@heroui/react";
+import { headers } from "next/headers";
 import Image from "next/image";
 
 const FacilityDetailsPage = async ({ params }) => {
+  const { token } = await auth.api.getToken({
+    headers: await headers()
+  });
+  console.log(token);
   const { id } = await params;
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/all-facilities/${id}`,
+    `${process.env.NEXT_PUBLIC_BASE_URL}/all-facilities/${id}`,{
+      headers: {
+        authorization: `Bearer ${token}`
+      }
+    }
   );
   const facility = await res.json();
 
   return (
-    <div className="max-w-7xl mx-auto py-10 md:py-20 px-4">
+    <div className="max-w-7xl mx-auto py-10 md:py-20 mt-20 md:mt-10 px-4">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-15">
         {/* LEFT SIDE - INFO */}
         <div className="space-y-5 p-3 md:p-5">

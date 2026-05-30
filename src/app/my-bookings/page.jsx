@@ -13,19 +13,26 @@ const MyBookingsPage = async () => {
   const user = session?.user;
   const userId = user?.id;
   // console.log("session user id", userId);
+  const { token } = await auth.api.getToken({
+    headers: await headers()
+  });
 
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/booking/${userId}`,
+    `${process.env.NEXT_PUBLIC_BASE_URL}/booking/${userId}`,{
+      headers: {
+        authorization: `Bearer ${token}`
+      }
+    }
   );
   const bookings = await res.json();
 
   return (
-    <section className="py-12 md:py-20  w-full bg-gray-200 px-4">
+    <section className="py-12 md:py-20  w-full bg-gray-200 mt-7 md:mt-10 px-4">
       <div className="max-w-7xl mx-auto my-10 md:my-0">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
           My Bookings
         </h2>
-        <p className="text-gray-500 mt-3">
+        <p className="text-gray-500 mt-2">
           View and manage all your booked sports facilities in one place.
         </p>
 

@@ -18,6 +18,7 @@ import Link from "next/link";
 import { redirect, useRouter } from "next/navigation";
 
 import { FaGoogle } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 
 export default function SignUpPage() {
@@ -38,6 +39,7 @@ export default function SignUpPage() {
     });
 
     console.log({data, error});
+    toast.success("Welcome Home")
 
     redirect("/");
     
@@ -48,6 +50,8 @@ export default function SignUpPage() {
      const data = await authClient.signIn.social({
     provider: "google",
   });
+
+  toast.success("Welcome Home")
   };
   
 

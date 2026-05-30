@@ -1,8 +1,10 @@
 "use client";
 
+import { authClient } from "@/lib/auth-client";
 import { Button, FieldError, TextArea, ListBox,  Select, Input, Label, Modal, Surface, TextField } from "@heroui/react";
 import { redirect } from "next/navigation";
 import { BiEdit } from "react-icons/bi";
+import { toast } from "react-toastify";
 
 const EditFacility = ({facility}) => {
     console.log(facility);
@@ -13,16 +15,21 @@ const EditFacility = ({facility}) => {
             const formData = new FormData(e.currentTarget)
             const newFacilityInfo = Object.fromEntries(formData.entries());
             // console.log(newFacilityInfo);
+
+            const {data: tokenData} = await authClient.token()
     
             const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/all-facilities/${id}`, {
               method: 'PATCH',
               headers: {
-                'content-type' : 'application/json'
+                'content-type' : 'application/json',
+                authorization: `Bearer ${tokenData?.token}`
               },
               body: JSON.stringify(newFacilityInfo)
             })
             const data = await res.json();
             console.log(data);
+
+            toast.success("Successfully Edited")
     
             redirect("/manage-my-facilities");
     

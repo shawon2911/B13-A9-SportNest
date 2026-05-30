@@ -16,8 +16,16 @@ const ManageMyFacilitiesPage = async () => {
   // console.log(session);
   const userEmail = session?.user?.email;
 
+  const {token} = await auth.api.getToken({
+    headers: await headers()
+  });
+
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/my-facilities/${userEmail}`,
+    `${process.env.NEXT_PUBLIC_BASE_URL}/my-facilities/${userEmail}`,{
+      headers: {
+        authorization: `Bearer ${token}`
+      }
+    }
   );
   const ownerAddedFacilities = await res.json();
   // console.log(ownerAddedFacilities);

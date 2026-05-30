@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Button, Card, FieldError, Input, Label, TextField } from "@heroui/react";
 import { redirect } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
+import { toast } from "react-toastify";
 
 const BookingConfirmForm = ({ facility }) => {
      const {_id, name, location, category, pricePerHour, rating, availableSlots, image, description} = facility;
@@ -46,15 +47,21 @@ const BookingConfirmForm = ({ facility }) => {
 
     console.log("Booking Confirmed:", bookingData);
 
+    const { data: tokenData} = await authClient.token()
+    // console.log("token data: " , tokenData);
+
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/booking`, {
         method: "POST",
         headers: {
-            'content-type' : "application/json"
+            'content-type' : "application/json",
+            authorization : `Bearer ${tokenData?.token}`
         },
         body: JSON.stringify(bookingData)
     })
     const data = await res.json();
     console.log(data);
+
+    toast.success("Successfully Booked")
 
     redirect("/my-bookings");
 

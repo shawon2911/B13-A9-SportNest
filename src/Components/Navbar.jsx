@@ -13,6 +13,7 @@ import {
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
   const { data: session } = authClient.useSession();
@@ -27,6 +28,7 @@ const Navbar = () => {
 
   const handleSignOut = async () => {
     await authClient.signOut();
+    toast.warning("Sign Out Successfully!!")
   };
 
   return (
@@ -34,12 +36,12 @@ const Navbar = () => {
       <nav className="flex items-center justify-between max-w-7xl mx-auto px-4">
         
         {/* Logo */}
-        <div>
+        <Link href={"/"}>
           <h2 className="text-3xl">
             <span>Sport</span>
             <span className="text-white">Nest</span>
           </h2>
-        </div>
+        </Link>
 
         {/* Mobile Toggle Button */}
         <div className="md:hidden">

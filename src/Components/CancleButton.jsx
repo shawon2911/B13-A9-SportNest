@@ -1,6 +1,8 @@
 "use client";
+import { authClient } from "@/lib/auth-client";
 import { AlertDialog, Button } from "@heroui/react";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { toast } from "react-toastify";
 
 const CancleButton =  ({
   itemId,
@@ -10,16 +12,22 @@ const CancleButton =  ({
 }) => {
    const handleDelete = async () => {
 
+    const {data: tokenData} = await authClient.token()
+
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_URL}/${endpoint}/${itemId}`,
       {
         method: "DELETE",
+        headers: {
+          authorization: `Bearer ${tokenData?.token}`
+        }
       }
     );
 
     const data = await res.json();
 
-    console.log(data);
+    // console.log(data);
+    toast.error("Succesfully Deleted")
 
     window.location.reload();
   };
