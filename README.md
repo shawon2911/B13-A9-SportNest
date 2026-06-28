@@ -52,20 +52,14 @@ A modern sports facility booking platform where users can explore, book, and man
 | `swiper` | Hero banner slider |
 | `@heroui/react` | UI component library |
 
----
 
 
 
-Create a `.env.local` file in the root:
 
-```env
-NEXT_PUBLIC_BASE_URL=your_backend_api_url
-BETTER_AUTH_SECRET=your_secret_key
-BETTER_AUTH_URL=your_backend_url
-NEXT_PUBLIC_GOOGLE_CLIENT_ID=your_google_client_id
-```
 
----
+
+
+
 
 ## 🚀 Getting Started
 
