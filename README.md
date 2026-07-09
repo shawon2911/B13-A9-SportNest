@@ -6,7 +6,7 @@ A modern sports facility booking platform where users can explore, book, and man
 
 ## 🔗 Live URL
 
-[https://sportnest.vercel.app](https://sportnest.vercel.app)
+[https://sportnest-virid.vercel.app](https://sportnest-virid.vercel.app)
 
 ---
 
